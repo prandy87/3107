@@ -1,0 +1,58 @@
+<!--
+<html>
+  <head>
+    <title>S'enregistrer</title>
+  </head>
+  <body>
+    <h1>S'enregistrer</h1>
+    <br>
+    <form method="post">
+    <p>Username :</p>
+    <input type="text" name="username">
+    <br>
+    <p>Email :</p>
+    <input type="email" name="email">
+    <br>
+    <p>Ta biographie</p>
+    <input type="textarea" name="bio">
+    </form>
+  </body>
+</html>
+-->
+
+
+<!-- 
+<html>
+  <body>
+    <h1>S'enregistrer</h1>
+    <%= form_tag url_for('new'), method: "post" do %>
+    <%= label_tag 'Username' %>
+    <%= text_field_tag :user %>
+    <br>
+    <%= label_tag 'Email' %>
+    <%= text_field_tag :email %>
+    <br>
+    <%= label_tag 'Bio' %>
+    <%= text_area_tag :bio %>
+    <br>
+    <%= submit_tag "S'enregistrer" %>
+    <% end %>
+  </body>
+</html> 
+-->
+
+<html>
+  <body>
+  <div class='form' style="text-align: center">
+    <h1>S'enregistrer</h1>
+    <% @user = User.new %>
+    <%= form_for @user, url: users_new_path(@user) do |f| %>
+      Username: <%=f.text_field :username, class: "form-control", placeholder: "userneame" %> <br>
+      Email: <%=f.text_field :email, class: "form-control", placeholder: "email@example.com" %> <br>
+      Bio: <%= f.text_field :bio, class: "form-control", placeholder: "Ta magnifique bio" %> <br>
+      <%= f.submit "S'enregistrer" %>
+      </div>
+    <% end %>
+
+  </body>
+</html>
